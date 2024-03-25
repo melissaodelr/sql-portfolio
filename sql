@@ -132,3 +132,24 @@ SELECT moviestars.name AS "movie star name", movies.name AS "movie title", origi
   FROM moviestars 
   JOIN movies ON moviestars.id = movies.id 
   JOIN origin ON moviestars.id = origin.id;
+
+
+/*Think about your favorite apps, and pick one that stores your data- like a game that stores scores, an app that lets you post updates, etc. Now in this project, you're going to imagine that the app stores your data in a SQL database (which is pretty likely!), and write SQL statements that might look like their own SQL.
+
+CREATE a table to store the data.
+INSERT a few example rows in the table.
+Use an UPDATE to emulate what happens when you edit data in the app.
+Use a DELETE to emulate what happens when you delete data in the app. */
+
+CREATE TABLE data (id INTEGER PRIMARY KEY, user_id INTEGER, post TEXT, date_posted TEXT);
+
+INSERT INTO data VALUES (1, 1, "Had a coffee this morning, have a great day everyone!", "01-25-2024");
+INSERT INTO data VALUES (2, 2, "Exciting day at work, I got promoted!", "02-19-2024");
+INSERT INTO data VALUES (3, 3, "Its the weekend, have fun!", "03-02-2024");
+INSERT INTO data VALUES (4, 4, "I am so excited to watch the new movie coming out!", "03-25-2024");
+
+UPDATE data SET date_posted = "03-20-2024" WHERE date_posted = "03-25-2024";
+
+DELETE FROM data WHERE post = "Its the weekend, have fun!";
+
+SELECT * FROM data;
